@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Español con Historia · Unidad 1</title>
+<style>
+/* ============================================================
+   STYLES.CSS — Español con Historia
+   Identidade: vinho · dourado · bege · tipografia expressiva
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* --- Variáveis de cor e fonte --- */
+:root {
+  --vino:       #5b1116;
+  --vino2:      #842126;
+  --vino3:      #3a0a0d;
+  --dorado:     #f5c15b;
+  --dorado2:    #edb739;
+  --dorado3:    #b78320;
+  --crema:      #fff8ed;
+  --crema2:     #fff0d6;
+  --crema3:     #ead8b6;
+  --texto:      #2b1111;
+  --texto2:     #6b3535;
+  --verde:      #138a5a;
+  --verde-bg:   #dfffea;
+  --verde-borda:#18a66d;
+  --rojo:       #c73243;
+  --rojo-bg:    #ffe2e5;
+  --rojo-borda: #c73243;
+  --sombra:     0 6px 0;
+  --radius-sm:  12px;
+  --radius-md:  18px;
+  --radius-lg:  24px;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: linear-gradient(160deg, var(--vino3) 0%, var(--vino) 50%, #1a0305 100%);
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--texto);
+}
+
+/* --- App container --- */
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--crema);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- Header --- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(90deg, var(--vino3), var(--vino2));
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--dorado3);
+  box-shadow: 0 4px 16px #0006;
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  line-height: 1.2;
+}
+
+.header-sub {
+  font-size: 11px;
+  opacity: .75;
+  font-weight: 600;
+}
+
+.score-badge {
+  background: var(--dorado);
+  color: var(--vino3);
+  font-weight: 900;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--dorado3);
+  white-space: nowrap;
+  box-shadow: 0 3px 0 var(--dorado3);
+}
+
+/* --- Navegação abas --- */
+.nav {
+  position: sticky;
+  top: 62px;
+  z-index: 19;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 12px;
+  background: var(--crema2);
+  border-bottom: 3px solid var(--crema3);
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  border: 2px solid var(--crema3);
+  background: white;
+  color: var(--texto2);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: var(--font-body);
+}
+.nav-btn:hover,
+.nav-btn.active {
+  background: var(--vino);
+  color: white;
+  border-color: var(--vino);
+}
+
+/* --- Seções --- */
+.section {
+  padding: 16px;
+  border-bottom: 6px solid var(--crema3);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.section-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--vino);
+  color: var(--dorado);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--vino);
+  font-weight: 700;
+}
+
+/* --- Capa / Hero --- */
+.hero {
+  background: linear-gradient(135deg, var(--vino3), var(--vino2));
+  padding: 32px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-unidad {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  opacity: .8;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-tag {
+  background: rgba(245,193,91,.15);
+  border: 1.5px solid var(--dorado);
+  color: var(--dorado);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* --- Cards interativos --- */
+.card {
+  background: white;
+  border: 3px solid var(--crema3);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 0 var(--crema3);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--vino);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.card-hint {
+  font-size: 12px;
+  color: var(--texto2);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* --- Exercícios fill-in --- */
+.fill-item {
+  background: var(--crema);
+  border: 2px solid var(--crema3);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+.fill-item input {
+  display: inline-block;
+  width: 130px;
+  padding: 4px 10px;
+  border: 2.5px solid var(--crema3);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  background: white;
+  color: var(--texto);
+  transition: border-color .2s, background .2s;
+  vertical-align: middle;
+}
+
+.fill-item input:focus {
+  outline: none;
+  border-color: var(--dorado2);
+  background: #fffdf5;
+}
+
+.fill-item input.correct {
+  border-color: var(--verde-borda);
+  background: var(--verde-bg);
+  color: var(--verde);
+}
+
+.fill-item input.wrong {
+  border-color: var(--rojo-borda);
+  background: var(--rojo-bg);
+  color: var(--rojo);
+}
+
+/* --- Feedback --- */
+.feedback {
+  display: none;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin-top: 12px;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.feedback.good {
+  display: block;
+  background: var(--verde-bg);
+  color: var(--verde);
+  border: 3px solid var(--verde-borda);
+}
+
+.feedback.bad {
+  display: block;
+  background: var(--rojo-bg);
+  color: var(--rojo);
+  border: 3px solid var(--rojo-borda);
+}
+
+/* --- Botões de ação --- */
+.btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.btn {
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  font-weight: 900;
+  font-size: 15px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: transform .1s, box-shadow .1s;
+}
+
+.btn:active { transform: translateY(2px); box-shadow: none !important; }
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--dorado), var(--dorado2));
+  color: var(--vino3);
+  box-shadow: 0 5px 0 var(--dorado3);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--vino);
+  border: 2.5px solid var(--crema3);
+  box-shadow: 0 4px 0 var(--crema3);
+}
+
+.btn-vino {
+  background: linear-gradient(180deg, var(--vino2), var(--vino));
+  color: white;
+  box-shadow: 0 5px 0 var(--vino3);
+}
+
+/* --- Palabras locas --- */
+.letras-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 54px;
+  padding: 10px;
+  background: var(--crema2);
+  border: 3px dashed var(--crema3);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+}
+
+.letra-btn {
+  background: var(--vino);
+  color: white;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--vino3);
+  transition: transform .1s;
+  font-family: var(--font-body);
+}
+
+.letra-btn:active { transform: translateY(2px); box-shadow: none; }
+.letra-btn:disabled { opacity: .3; cursor: default; }
+
+.answer-box {
+  min-height: 54px;
+  padding: 10px 14px;
+  background: white;
+  border: 3px solid var(--crema3);
+  border-radius: var(--radius-md);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--vino);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.pista-tag {
+  display: inline-block;
+  background: var(--dorado);
+  color: var(--vino3);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+/* --- Quiz --- */
+.quiz-item {
+  background: var(--crema);
+  border: 2px solid var(--crema3);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.quiz-pergunta {
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--vino);
+  margin-bottom: 12px;
+}
+
+.quiz-opcao {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-radius: var(--radius-sm);
+  border: 2.5px solid var(--crema3);
+  background: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--texto);
+  transition: border-color .15s, background .15s;
+}
+
+.quiz-opcao:hover:not(:disabled) { border-color: var(--dorado2); background: #fffdf0; }
+.quiz-opcao.correct { background: var(--verde-bg); border-color: var(--verde-borda); color: var(--verde); }
+.quiz-opcao.wrong   { background: var(--rojo-bg);  border-color: var(--rojo-borda);  color: var(--rojo); }
+
+.quiz-explicacao {
+  display: none;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto2);
+  padding: 8px 12px;
+  background: #fff8e0;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--dorado2);
+}
+
+/* --- Áudio --- */
+.audio-card {
+  background: var(--crema2);
+  border: 2.5px solid var(--crema3);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.audio-label {
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--vino);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+audio { width: 100%; border-radius: var(--radius-sm); }
+
+.shadow-steps {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.shadow-step {
+  background: white;
+  border: 2px solid var(--crema3);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--texto2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Embeds --- */
+.embed-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #111;
+  margin-bottom: 14px;
+}
+
+.embed-wrap iframe {
+  width: 100%;
+  height: 460px;
+  border: 0;
+  display: block;
+}
+
+.embed-label {
+  background: var(--vino);
+  color: var(--dorado);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+}
+
+/* --- Progresso --- */
+.progress-bar-wrap {
+  background: var(--crema3);
+  border-radius: 999px;
+  height: 8px;
+  margin: 6px 0 14px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--dorado2), var(--dorado));
+  border-radius: 999px;
+  transition: width .4s ease;
+  width: 0%;
+}
+
+/* --- Recompensa (toast) --- */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--vino);
+  color: var(--dorado);
+  font-weight: 900;
+  font-size: 16px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 3px solid var(--dorado);
+  box-shadow: 0 8px 32px #0006;
+  z-index: 100;
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Footer --- */
+.footer {
+  padding: 24px;
+  text-align: center;
+  background: var(--vino3);
+  color: rgba(255,255,255,.6);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.footer strong { color: var(--dorado); }
+
+/* --- Responsivo --- */
+@media (max-width: 480px) {
+  .section { padding: 12px; }
+  .card { padding: 14px; }
+  .hero-title { font-size: 28px; }
+  .embed-wrap iframe { height: 380px; }
+  .fill-item input { width: 110px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- HEADER FIXO -->
+  <header class="header">
+    <div>
+      <div class="header-title">Español con Historia</div>
+      <div class="header-sub">Unidad 1 · Laura &amp; Martín</div>
+    </div>
+    <div class="score-badge" id="score">0 pts</div>
+  </header>
+
+  <!-- NAVEGAÇÃO POR ABAS -->
+  <nav class="nav">
+    <button class="nav-btn" data-target="s0" onclick="go('s0')">🏠 Início</button>
+    <button class="nav-btn" data-target="s1" onclick="go('s1')">🔤 Palabras</button>
+    <button class="nav-btn" data-target="s2" onclick="go('s2')">✏️ Verbos</button>
+    <button class="nav-btn" data-target="s3" onclick="go('s3')">🎮 Juegos</button>
+    <button class="nav-btn" data-target="s4" onclick="go('s4')">📖 Texto</button>
+    <button class="nav-btn" data-target="s5" onclick="go('s5')">💬 Comprensión</button>
+    <button class="nav-btn" data-target="s6" onclick="go('s6')">🎵 Música</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       S0 · CAPA / HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s0" style="padding:0;border-bottom:6px solid var(--crema3)">
+    <div class="hero">
+      <div class="hero-unidad">Unidad 1</div>
+      <div class="hero-title">El Match</div>
+      <div class="hero-subtitle">Laura & Martín · Brasil 🇧🇷 &amp; España 🇪🇸</div>
+      <div class="hero-tags">
+        <span class="hero-tag">Verbo SER</span>
+        <span class="hero-tag">Llamarse</span>
+        <span class="hero-tag">Presente Regular</span>
+        <span class="hero-tag">Profesiones</span>
+        <span class="hero-tag">Saludos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S1 · PALABRAS LOCAS + VERBO LLAMARSE
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s1">
+
+    <div class="section-header">
+      <div class="section-icon">🔤</div>
+      <div class="section-title">Palabras &amp; Nombres</div>
+    </div>
+
+    <!-- Palabras locas -->
+    <div class="card">
+      <div class="card-title">🎲 Palabras Locas — Profesiones</div>
+      <div class="card-hint">Toca las letras en orden para formar la palabra.</div>
+      <div id="wordGame"></div>
+      <div id="wordFb" class="feedback"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="checkWord()">✓ Comprobar</button>
+        <button class="btn btn-secondary" onclick="clearWord()">↩ Borrar</button>
+        <button class="btn btn-vino" onclick="nextWord()">→ Otra</button>
+      </div>
+    </div>
+
+    <!-- Verbo LLAMARSE -->
+    <div class="card">
+      <div class="card-title">👤 Verbo LLAMARSE</div>
+      <div class="card-hint">Completa con la forma correcta.</div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="llamarseBoxBar"></div></div>
+      <div id="llamarseBox"></div>
+      <div id="llamarseBoxFb" class="feedback"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="checkFill('llamarseBox', LLAMARSE_EJERCICIO, 'llamarse')">✓ Comprobar</button>
+        <button class="btn btn-secondary" onclick="resetFill('llamarseBox', LLAMARSE_EJERCICIO)">↩ Reiniciar</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S2 · VERBOS — SER + PRESENTE REGULAR
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s2">
+
+    <div class="section-header">
+      <div class="section-icon">✏️</div>
+      <div class="section-title">Gramática</div>
+    </div>
+
+    <!-- Verbo SER -->
+    <div class="card">
+      <div class="card-title">🔵 Verbo SER — Presente</div>
+      <div class="card-hint">Completa con la forma correcta. No importan los acentos.</div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="serBoxBar"></div></div>
+      <div id="serBox"></div>
+      <div id="serBoxFb" class="feedback"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="checkFill('serBox', SER_EJERCICIO, 'ser')">✓ Comprobar</button>
+        <button class="btn btn-secondary" onclick="resetFill('serBox', SER_EJERCICIO)">↩ Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- Presente Regular -->
+    <div class="card">
+      <div class="card-title">🟠 Presente Regular — AR / ER / IR</div>
+      <div class="card-hint">Conjuga el verbo entre paréntesis.</div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="regularBoxBar"></div></div>
+      <div id="regularBox"></div>
+      <div id="regularBoxFb" class="feedback"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="checkFill('regularBox', REGULAR_EJERCICIO, 'regular')">✓ Comprobar</button>
+        <button class="btn btn-secondary" onclick="resetFill('regularBox', REGULAR_EJERCICIO)">↩ Reiniciar</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S3 · JUEGOS — áudio shadowing + embeds
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s3">
+
+    <div class="section-header">
+      <div class="section-icon">🎮</div>
+      <div class="section-title">Juegos &amp; Audios</div>
+    </div>
+
+    <!-- Shadowing Martín -->
+    <div class="card">
+      <div class="card-title">🎧 Shadowing — Martín</div>
+      <div class="card-hint">Escucha, repite y grábate para comparar.</div>
+      <div class="audio-card">
+        <div class="audio-label">🇪🇸 Martín (WhatsApp)</div>
+        <audio controls id="audio_martin_whatsapp">
+          <source src="" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="shadow-steps">
+        <div class="shadow-step">👂 Ouve 3x</div>
+        <div class="shadow-step">🗣️ Repete 3x</div>
+        <div class="shadow-step">🎙️ Grava</div>
+        <div class="shadow-step">🔍 Compara</div>
+      </div>
+    </div>
+
+    <!-- Ordena el diálogo -->
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="embed-label">🔀 Ordena el diálogo</div>
+      <div class="embed-wrap" style="margin:0;border-radius:0">
+        <iframe src="https://learningapps.org/watch?app=8000225" allowfullscreen loading="lazy" title="Ordena el diálogo"></iframe>
+      </div>
+    </div>
+
+    <!-- Saludo o despedida -->
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="embed-label">👋 Saludo o despedida</div>
+      <div class="embed-wrap" style="margin:0;border-radius:0">
+        <iframe src="https://learningapps.org/watch?app=14342398" allowfullscreen loading="lazy" title="Saludo o despedida"></iframe>
+      </div>
+    </div>
+
+    <!-- Profesiones -->
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="embed-label">👷 Profesiones</div>
+      <div class="embed-wrap" style="margin:0;border-radius:0">
+        <iframe src="https://learningapps.org/watch?v=pjdf0qrc320" allowfullscreen loading="lazy" title="Profesiones"></iframe>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S4 · TEXTO LITERÁRIO + ÁUDIOS
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s4">
+
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <div class="section-title">El Texto</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📜 Historia de Laura &amp; Martín</div>
+      <div class="card-hint">Escucha el texto en dos variedades del español.</div>
+
+      <div class="audio-card">
+        <div class="audio-label">🇦🇷 Versión argentina (porteño)</div>
+        <audio controls id="audio_texto_argentina">
+          <source src="" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div class="audio-card">
+        <div class="audio-label">🇪🇸 Versión española (Madrid)</div>
+        <audio controls id="audio_texto_espana">
+          <source src="" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div class="shadow-steps" style="margin-top:12px">
+        <div class="shadow-step">👂 Ouve 3x</div>
+        <div class="shadow-step">🗣️ Repete 3x</div>
+        <div class="shadow-step">🎙️ Grava</div>
+        <div class="shadow-step">🔍 Compara</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S5 · COMPRENSIÓN TEXTUAL — quiz
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s5">
+
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <div class="section-title">Comprensión</div>
+    </div>
+
+    <!-- Comparação de sotaque -->
+    <div class="card">
+      <div class="card-title">🗣️ Acento Madrileño vs Porteño</div>
+      <div class="card-hint">Observa la pronunciación de S, LL, YA, YO...</div>
+
+      <div class="audio-card">
+        <div class="audio-label">🇪🇸 Madrid — María</div>
+        <audio controls id="audio_comparacion_espana">
+          <source src="" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div class="audio-card">
+        <div class="audio-label">🇦🇷 Buenos Aires — José</div>
+        <audio controls id="audio_comparacion_argentina">
+          <source src="" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="card">
+      <div class="card-title">❓ Quiz — ¿Entendiste el texto?</div>
+      <div class="card-hint">Elige la opción correcta. Solo una respuesta es posible.</div>
+      <div id="quizBox"></div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S6 · MÚSICA — Café Tacuba
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="s6">
+
+    <div class="section-header">
+      <div class="section-icon">🎵</div>
+      <div class="section-title">Música</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🎤 Café Tacuba — Eres</div>
+      <div class="card-hint">Escucha y completa las lacunas de la letra.</div>
+
+      <!-- YouTube embed -->
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;background:#000">
+        <iframe
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          allowfullscreen
+          loading="lazy"
+          title="Café Tacuba - Eres">
+        </iframe>
+      </div>
+
+      <div class="card-hint" style="margin-bottom:14px">
+        ⚠️ Sustituye <strong>YOUR_VIDEO_ID</strong> por el ID del video en YouTube.
+      </div>
+
+      <div class="shadow-steps">
+        <div class="shadow-step">👂 Escucha 3x</div>
+        <div class="shadow-step">🗣️ Repite 3x</div>
+        <div class="shadow-step">🎙️ Grábate</div>
+        <div class="shadow-step">🔍 Compara</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <strong>Español con Historia</strong><br>
+    Andréa Martins · Mentora de Espanhol
+  </footer>
+
+</div><!-- .app -->
+
+<!-- Toast de recompensa -->
+<div class="toast" id="toast"></div>
+
+<!-- Scripts — ordem importa -->
+<script>
+// ============================================================
+// DATA.JS — Unidad 1 · Español con Historia
+// Editável pela Andréa: só mexer aqui, nunca no app.js
+// ============================================================
+
+const UNIDAD = {
+  numero: 1,
+  titulo: "Unidad 1",
+  subtitulo: "Laura & Martín · El Match",
+  abas: ["Início", "Palabras", "Verbos", "Juegos", "Texto", "Comprensión", "Música"]
+};
+
+const AUDIOS = {
+  martin_whatsapp:      "",
+  texto_argentina:      "",
+  texto_espana:         "",
+  comparacion_espana:   "",
+  comparacion_argentina:"",
+  musica_cafe_tacuba:   ""
+};
+
+const EMBEDS = {
+  ordena_dialogo:   "https://learningapps.org/watch?app=8000225",
+  saludo_despedida: "https://learningapps.org/watch?app=14342398",
+  profesiones:      "https://learningapps.org/watch?v=pjdf0qrc320",
+  actividad_extra:  "https://learningapps.org/watch?app=30563258"
+};
+
+const PALABRAS_LOCAS = [
+  { palabra: "azafata",   pista: "Trabaja en aviones ✈️" },
+  { palabra: "juez",      pista: "Trabaja en el juzgado ⚖️" },
+  { palabra: "camarero",  pista: "Trabaja en un restaurante 🍽️" },
+  { palabra: "albañil",   pista: "Construye casas 🏗️" },
+  { palabra: "sastre",    pista: "Hace ropa 🧵" },
+  { palabra: "carnicero", pista: "Vende carne 🥩" }
+];
+
+const SER_EJERCICIO = [
+  { frase: "Yo ___ brasileña.",                respuestas: ["soy"] },
+  { frase: "Martín ___ español.",              respuestas: ["es"] },
+  { frase: "Tú ___ muy simpático.",            respuestas: ["eres"] },
+  { frase: "Él ___ abogado.",                  respuestas: ["es"] },
+  { frase: "Laura y Martín ___ nuevos amigos.", respuestas: ["son"] },
+  { frase: "Vosotros ___ españoles.",          respuestas: ["sois"] },
+  { frase: "Ignacio ___ arquitecto.",          respuestas: ["es"] },
+  { frase: "Giuseppe ___ italiano.",           respuestas: ["es"] },
+  { frase: "Diego y Frida ___ mexicanos.",     respuestas: ["son"] },
+  { frase: "Usted ___ analista.",              respuestas: ["es"] }
+];
+
+const LLAMARSE_EJERCICIO = [
+  { frase: "¿Cómo ___ tú?",               respuestas: ["te llamas"] },
+  { frase: "Yo ___ Laura.",               respuestas: ["me llamo"] },
+  { frase: "Mi amiga ___ Carolina.",      respuestas: ["se llama"] },
+  { frase: "¿Cómo ___ él?",              respuestas: ["se llama"] },
+  { frase: "Nosotros ___ Martín y Laura.", respuestas: ["nos llamamos"] }
+];
+
+const REGULAR_EJERCICIO = [
+  { frase: "Martín ___ (trabajar) en un bufete.",     respuestas: ["trabaja"] },
+  { frase: "Laura ___ (vivir) en São Paulo.",         respuestas: ["vive"] },
+  { frase: "Ellos ___ (hablar) todos los días.",      respuestas: ["hablan"] },
+  { frase: "Nosotros ___ (aprender) español juntos.", respuestas: ["aprendemos"] },
+  { frase: "Yo ___ (escribir) mensajes cada noche.",  respuestas: ["escribo"] },
+  { frase: "Tú ___ (leer) rápido.",                   respuestas: ["lees"] },
+  { frase: "Martín y su perro ___ (mirar) la tele.",  respuestas: ["miran"] },
+  { frase: "Vosotros ___ (comer) en casa hoy.",       respuestas: ["comeis","coméis"] }
+];
+
+const QUIZ = [
+  {
+    pregunta: "¿Cuál afirmación sobre Laura es INCORRECTA?",
+    opciones: [
+      "Laura era publicista",
+      "Soñaba con amores imposibles",
+      "Dibujaba amores imposibles",
+      "Laura tenía ojos de estrella"
+    ],
+    correcta: "Soñaba con amores imposibles",
+    explicacion: "Laura dibujaba amores imposibles — no los soñaba. ¡Ojo con los detalles del texto!"
+  },
+  {
+    pregunta: "¿Cuál afirmación sobre Martín es CORRECTA?",
+    opciones: [
+      "Martín siempre perdía causas en su trabajo",
+      "Le escribió a Laura con pocas esperanzas",
+      "Su primera novia lo bloqueó y desapareció",
+      "Su última novia ignoró todos sus mensajes"
+    ],
+    correcta: "Su primera novia lo bloqueó y desapareció",
+    explicacion: "Correcto. Su primera novia desapareció bloqueándolo. La última lo traicionó — son dos historias distintas."
+  }
+];
+
+</script>
+<script>
+// ============================================================
+// APP.JS — Engine de gamificação · Español con Historia
+// Não editar este arquivo. Todo o conteúdo fica em data.js
+// ============================================================
+
+// --- Score global ---
+let score = 0;
+let answered = {};  // controla itens já respondidos para não dar ponto duplo
+
+function addScore(n, key) {
+  if (answered[key]) return;
+  answered[key] = true;
+  score += n;
+  document.getElementById('score').textContent = score + ' pts';
+  showToast('+' + n + ' pts 🌟');
+}
+
+// --- Toast de recompensa ---
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// --- Navegação por abas ---
+function go(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.nav-btn[data-target="${id}"]`);
+  if (btn) btn.classList.add('active');
+}
+
+// --- Normalize para comparação (ignora acentos, maiúsculas, espaços) ---
+function normalize(s) {
+  return (s || '').toString().trim().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ');
+}
+
+// ============================================================
+// FILL-IN — exercícios de completar lacunas
+// ============================================================
+function buildFill(containerId, dados) {
+  const box = document.getElementById(containerId);
+  if (!box) return;
+  box.innerHTML = '';
+  dados.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'fill-item';
+    div.innerHTML = item.frase.replace('___',
+      `<input type="text" data-idx="${idx}" placeholder="…" autocomplete="off" autocorrect="off" spellcheck="false">`
+    );
+    box.appendChild(div);
+  });
+}
+
+function checkFill(containerId, dados, scoreKey) {
+  const box = document.getElementById(containerId);
+  const fb  = document.getElementById(containerId + 'Fb');
+  const inputs = box.querySelectorAll('input');
+  let ok = 0;
+
+  inputs.forEach(inp => {
+    const idx = parseInt(inp.dataset.idx);
+    const val = normalize(inp.value);
+    const respostas = dados[idx].respuestas.map(normalize);
+    if (respostas.includes(val)) {
+      inp.classList.remove('wrong'); inp.classList.add('correct'); ok++;
+    } else {
+      inp.classList.remove('correct'); inp.classList.add('wrong');
+    }
+  });
+
+  updateProgress(containerId + 'Bar', ok, inputs.length);
+
+  if (ok === inputs.length) {
+    fb.className = 'feedback good';
+    fb.textContent = '✅ ¡Todo correcto! Muy bien.';
+    addScore(10, scoreKey);
+  } else {
+    fb.className = 'feedback bad';
+    fb.textContent = `❌ Revisa. Correctas: ${ok}/${inputs.length}. ¡Inténtalo de nuevo!`;
+  }
+}
+
+function resetFill(containerId, dados) {
+  buildFill(containerId, dados);
+  const fb = document.getElementById(containerId + 'Fb');
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+  updateProgress(containerId + 'Bar', 0, dados.length);
+}
+
+// ============================================================
+// PROGRESSO por atividade
+// ============================================================
+function updateProgress(barId, ok, total) {
+  const bar = document.getElementById(barId);
+  if (!bar) return;
+  bar.style.width = Math.round((ok / total) * 100) + '%';
+}
+
+// ============================================================
+// PALABRAS LOCAS — anagrama
+// ============================================================
+let targetWord = '', builtWord = '', wordIndex = 0;
+
+function initWordGame() {
+  wordIndex = Math.floor(Math.random() * PALABRAS_LOCAS.length);
+  loadWord(wordIndex);
+}
+
+function loadWord(idx) {
+  const item = PALABRAS_LOCAS[idx];
+  targetWord = item.palabra;
+  builtWord  = '';
+
+  const letters = item.palabra.split('').sort(() => Math.random() - 0.5);
+  const box = document.getElementById('wordGame');
+  box.innerHTML = `
+    <div class="pista-tag">💡 ${item.pista}</div>
+    <div class="letras-pool" id="letrasPool">
+      ${letters.map((l, i) => `<button class="letra-btn" data-i="${i}" onclick="pickLetra(this,'${l}')">${l.toUpperCase()}</button>`).join('')}
+    </div>
+    <p style="font-size:12px;font-weight:700;color:var(--texto2);margin-bottom:6px;">Tu respuesta:</p>
+    <div class="answer-box" id="answerBox">&nbsp;</div>
+  `;
+  const fb = document.getElementById('wordFb');
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+}
+
+function pickLetra(btn, l) {
+  builtWord += l;
+  btn.disabled = true;
+  btn.style.opacity = '.25';
+  document.getElementById('answerBox').textContent = builtWord.toUpperCase();
+}
+
+function checkWord() {
+  const fb = document.getElementById('wordFb');
+  if (normalize(builtWord) === normalize(targetWord)) {
+    fb.className = 'feedback good';
+    fb.textContent = '✅ ¡Correcto! La palabra es: ' + targetWord;
+    addScore(5, 'word_' + targetWord);
+  } else {
+    fb.className = 'feedback bad';
+    fb.textContent = '❌ No es correcto. La palabra era: ' + targetWord + '. ¡Intenta otra!';
+  }
+}
+
+function nextWord() {
+  wordIndex = (wordIndex + 1) % PALABRAS_LOCAS.length;
+  loadWord(wordIndex);
+}
+
+function clearWord() {
+  builtWord = '';
+  loadWord(wordIndex);
+}
+
+// ============================================================
+// QUIZ — múltipla escolha
+// ============================================================
+function buildQuiz(containerId, dados) {
+  const box = document.getElementById(containerId);
+  if (!box) return;
+  box.innerHTML = '';
+
+  dados.forEach((item, qi) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-item';
+
+    const p = document.createElement('div');
+    p.className = 'quiz-pergunta';
+    p.textContent = item.pregunta;
+    div.appendChild(p);
+
+    item.opciones.forEach(op => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opcao';
+      btn.textContent = op;
+      btn.onclick = () => {
+        // desabilita todas as opções do bloco
+        div.querySelectorAll('.quiz-opcao').forEach(b => b.disabled = true);
+        const correct = normalize(op) === normalize(item.correcta);
+        btn.classList.add(correct ? 'correct' : 'wrong');
+        if (!correct) {
+          div.querySelectorAll('.quiz-opcao').forEach(b => {
+            if (normalize(b.textContent) === normalize(item.correcta)) b.classList.add('correct');
+          });
+        }
+        const exp = div.querySelector('.quiz-explicacao');
+        if (exp) exp.style.display = 'block';
+        if (correct) addScore(5, 'quiz_' + qi);
+      };
+      div.appendChild(btn);
+    });
+
+    if (item.explicacion) {
+      const exp = document.createElement('div');
+      exp.className = 'quiz-explicacao';
+      exp.textContent = '💡 ' + item.explicacion;
+      div.appendChild(exp);
+    }
+
+    box.appendChild(div);
+  });
+}
+
+// ============================================================
+// ÁUDIOS — insere src nos elementos
+// ============================================================
+function loadAudios(mapa) {
+  Object.entries(mapa).forEach(([key, src]) => {
+    const el = document.getElementById('audio_' + key);
+    if (el && src) el.src = src;
+  });
+}
+
+// ============================================================
+// INICIALIZAÇÃO
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Fill-in exercises
+  buildFill('serBox',       SER_EJERCICIO);
+  buildFill('llamarseBox',  LLAMARSE_EJERCICIO);
+  buildFill('regularBox',   REGULAR_EJERCICIO);
+
+  // Quiz
+  buildQuiz('quizBox', QUIZ);
+
+  // Palabras locas
+  initWordGame();
+
+  // Áudios
+  loadAudios(AUDIOS);
+
+  // Primeira aba ativa
+  const firstBtn = document.querySelector('.nav-btn');
+  if (firstBtn) firstBtn.classList.add('active');
+});
+
+</script>
+
+</body>
+</html>
